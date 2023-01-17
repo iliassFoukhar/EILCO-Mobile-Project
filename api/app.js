@@ -79,3 +79,7 @@ app.get("/", (req, res) => {
     res.send({ node: true, mongoDB: false });
   }
 });
+
+const userRoutes = require("./Routes/users");
+
+app.use("/api/user", userRoutes);
