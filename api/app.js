@@ -70,7 +70,11 @@ app.all("/*", (req, res, next) => {
 // Middlewares
 app.use(express.static("Public"));
 
-// Routes
+// Route Imports
+const userRoutes = require("./Routes/users");
+const restaurantRoutes = require("./Routes/restaurants");
+
+// Routes Checker that the backend is working
 app.get("/", (req, res) => {
   if (connected) {
     res.status(200).json({ nodeJS: true, mongoDB: true });
@@ -79,6 +83,5 @@ app.get("/", (req, res) => {
   }
 });
 
-const userRoutes = require("./Routes/users");
-
 app.use("/api/user", userRoutes);
+app.use("/api/restaurant", restaurantRoutes);
