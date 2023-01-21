@@ -19,7 +19,6 @@ const connectDB = async () => {
   };
 
   let dbURI = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@mongo:27017`;
-  // console.log(dbURI);
   await mongoose
     .connect(dbURI, options)
     .then(() => {
@@ -48,7 +47,7 @@ server.listen(port, () => {
     console.log("\n");
     console.log("Server Running...");
     console.log("Listening on Port " + port);
-    console.log("Project Batsort");
+    console.log("Project Food Recommendation API");
   }, 500);
 });
 
