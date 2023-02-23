@@ -1,13 +1,21 @@
 {
+  "name": "eilcomobile",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
   "dependencies": {
-    "@rneui/base": "^4.0.0-rc.7",
-    "@rneui/themed": "^4.0.0-rc.7",
-    "react-native-card-list": "^0.1.0",
-    "react-native-cardview": "^2.0.5",
-    "react-native-elements": "^3.4.3",
-    "react-native-paper": "^5.1.2",
-    "react-native-safe-area-context": "^4.4.1",
-    "react-native-stars": "^1.2.2",
-    "react-native-vector-icons": "^9.2.0"
-  }
+    "expo": "~47.0.12",
+    "expo-status-bar": "~1.4.2",
+    "react": "18.1.0",
+    "react-native": "0.70.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9"
+  },
+  "private": true
 }
