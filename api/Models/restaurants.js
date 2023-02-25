@@ -28,6 +28,27 @@ const RestaurantsSchema = Schema({
     type: Array,
     required: true,
   },
+  adress: {
+    type: String,
+    required: false,
+    default: "62100, Calais",
+  },
+  ratings: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: "Users",
+      },
+      stars: {
+        type: Number,
+        default: 0,
+      },
+      comment: {
+        type: String,
+        required: false,
+      },
+    },
+  ],
 });
 
 // Export the schema to the project
