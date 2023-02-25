@@ -8,6 +8,7 @@ const UserSchema = require("../Models/users");
 
 router.post("/register", async (req, res) => {
   try {
+    console.log("\n\n TRYING TO REGISTER")
     // Encrypt password
     const salt = await bcrypt.genSalt(10);
 

@@ -1,17 +1,61 @@
 import * as WebBrowser from 'expo-web-browser';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { StatusBar, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 
-import Colors from '../constants/Colors';
+import Colors, { BASE_URL } from '../constants/Colors';
 import ShopsList from './ShopsList';
 import { Text, View } from './Themed';
 //import ShopsList from './shopsList';
-
+var isSignedIn = false;
 export default function EditScreenInfo({}: { }) {
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
+//handleHelpPress();
+const [password, setPassword] = useState('');
+const [email, setEmail] = useState('');
+const [isSignedIn, setIsSignedIn] = useState(false);
+function login(email:string,password:string){
+  if(userExists(email,password))
+    console.warn("User exist,", email);
+  else
+    console.warn("User does not exist, sign up");
+    return false
+ 
+}
+const onLogin =() =>{
+  login(email,password);
+  //console.warn("username " + email);
+}
+
+function userExists(email: string, password: string) : boolean {
+  let isSignIn = false
+  fetch(BASE_URL+"api/user/login", {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({  
+      email : email,
+      password : password
+    }),
+  }).then(response => response.json()).then(json =>
+    {
+    if(json.success)
+      setIsSignedIn(true);
+    return json.success;
+  })
+  .catch(error => {
+    console.error("Wrong Email or password");
+    return false;
+  });
+  return isSignIn;
+}
+
+  if(!isSignedIn){
   return (
     <View>
-
-
-       
         <View style={styles.container}>
         <Image source={require("../assets/images/logo.png")} style={styles.image} />
       <StatusBar />
@@ -20,7 +64,8 @@ export default function EditScreenInfo({}: { }) {
           style={styles.TextInput}
           placeholder="Email."
           placeholderTextColor="#003f5c"
-          //onChangeText={(email) => setEmail(email)}
+          //value="email"
+          onChangeText={(email) => setEmail(email)}
         /> 
       </View> 
       <View style={styles.inputView}>
@@ -29,13 +74,11 @@ export default function EditScreenInfo({}: { }) {
           placeholder="Password."
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
-          //onChangeText={(password) => setPassword(password)}
+          //value = "password"
+          onChangeText={(password) => setPassword(password)}
         /> 
       </View> 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text> 
-      </TouchableOpacity> 
-      <TouchableOpacity style={styles.loginBtn} onPress={handleHelpPress} >
+      <TouchableOpacity style={styles.loginBtn} onPress={onLogin} >
         <Text>LOGIN</Text> 
       </TouchableOpacity> 
     </View>
@@ -45,17 +88,21 @@ export default function EditScreenInfo({}: { }) {
           darkColor="rgba(255,255,255,0.8)">
         </Text>
 
-      <View style={styles.helpContainer}>
-        <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-        </TouchableOpacity>
-      </View>
     </View>
-  );
+  );}
+  else{
+    return(<View>
+      <ShopsList></ShopsList>
+    </View>);
+  }
 }
 
 function handleHelpPress() {
-  return <ShopsList/>
+    isSignedIn = !isSignedIn
+  
+  return <EditScreenInfo></EditScreenInfo>
 }
+
 
 const styles = StyleSheet.create({
   getStartedContainer: {
@@ -122,3 +169,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF1493",
   },
 });
+
