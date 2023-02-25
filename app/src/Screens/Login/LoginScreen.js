@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { KeyboardAvoidingView, Image, TextInput } from "react-native";
-import CustomButton from "../../CustomButton/CustomButton";
+import CustomButton from "../../Components/CustomButton/CustomButton";
 import styles from "./LoginStyle";
 import userService from "../../Services/user";
 

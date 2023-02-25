@@ -1,6 +1,12 @@
 import React from "react";
 import { Text, StyleSheet, Pressable } from "react-native";
-import colors from "../Constants/colors";
+import colors from "../../Constants/colors";
+
+// onPress, Function to execute after click () => {} / smiaDlFunction
+// title = "Save",
+// theme, primary, outline
+// size lg md sm
+// customStyle = { button: {}, text: {} },
 
 const themeAdapter = (theme, property) => {
   const design = {

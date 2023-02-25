@@ -1,6 +1,6 @@
 import { Text, View, Image } from "react-native";
 import React from "react";
-import CustomButton from "../../CustomButton/CustomButton";
+import CustomButton from "../../Components/CustomButton/CustomButton";
 import styles from "./WelcomeStyle";
 import { useNavigation } from "@react-navigation/native";
 
