@@ -72,7 +72,11 @@ router.post("/login", async (req, res) => {
   let user;
   // Retrieving data
   const { email, password } = req.body;
-
+  console.log("@@@@@@@@@@@@@@@@@@@");
+  console.log("EMAIL === ");
+  console.log(email);
+  console.log("Password ====");
+  console.log(password);
   // Check if no user has the email provided
   try {
     user = await UserSchema.findOne({ "credentials.email": email });
