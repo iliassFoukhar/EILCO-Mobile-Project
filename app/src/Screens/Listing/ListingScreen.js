@@ -58,7 +58,10 @@ export default function ListingScreen({ route, navigation }) {
             <RestaurantCard
               info={item}
               onPress={(e) => {
-                navigation.navigate("Restaurant", { details: { ...item } });
+                navigation.navigate("Restaurant", {
+                  details: { ...item },
+                  fillRestaurants: fillRestaurants,
+                });
               }}
             />
           );

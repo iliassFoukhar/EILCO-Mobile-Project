@@ -23,7 +23,10 @@ export default function RestaurantScreen({ route, navigation }) {
       rating,
       route.params.user.token
     );
-    console.log("RESPONSE == ", response);
+    if (response === true) {
+      await route.params.fillRestaurants();
+      navigation.navigate("Listing");
+    }
   };
   useEffect(() => {
     console.log(details);
