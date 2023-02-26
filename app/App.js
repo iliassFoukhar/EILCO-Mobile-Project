@@ -8,6 +8,7 @@ import colors from "./src/Constants/colors";
 // Screens
 import Welcome from "./src/Screens/Welcome/Welcome";
 import LoginScreen from "./src/Screens/Login/LoginScreen";
+import RegisterScreen from "./src/Screens/Register/Register";
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,7 @@ function RootStack() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Signup" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }
