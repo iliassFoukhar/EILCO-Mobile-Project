@@ -28,7 +28,7 @@ export default function Welcome() {
       />
       <CustomButton
         onPress={(e) => {
-          console.log("Button clicked");
+          navigation.navigate("Signup");
         }}
         title="Sign up"
         theme="outline"

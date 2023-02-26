@@ -11,6 +11,9 @@ import colors from "./src/Constants/colors";
 import Welcome from "./src/Screens/Welcome/Welcome";
 import LoginScreen from "./src/Screens/Login/LoginScreen";
 import ListingScreen from "./src/Screens/Listing/ListingScreen";
+import RegisterScreen from "./src/Screens/Signup/RegisterScreen";
+
+// Navigator stack
 const Stack = createStackNavigator();
 
 function RootStack() {
@@ -31,22 +34,18 @@ function RootStack() {
         },
       })}
     >
-      <Stack.Screen
-        name="Welcome"
-        component={Welcome}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen
         name="Login"
         component={LoginScreen}
-        // options={{ user: { ...user } }}
         initialParams={{ setUser: setUser, user: { ...user } }}
       />
       <Stack.Screen
         name="Listing"
         component={ListingScreen}
-        // options={{ user: { ...user }, setUser: setUser }}
+        initialParams={{ setUser: setUser, user: { ...user } }}
       />
+      <Stack.Screen name="Signup" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }
