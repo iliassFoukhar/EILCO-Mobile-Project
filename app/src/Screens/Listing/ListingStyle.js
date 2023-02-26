@@ -75,5 +75,28 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
   },
+  row: {
+    backgroundColor: "#FFF",
+    alignItems: "flex-start",
+    justifyContent:"space-between",
+    flexDirection : "row"
+  },
+  logoutBtn : {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor : "#D9534F",
+    //width : 30,
+    marginLeft : 10,
+    marginTop : 10,
+    
+    
+  },
+  innerText : {
+    color:  "#F7F7F7"
+  }
 });
 export default styles;

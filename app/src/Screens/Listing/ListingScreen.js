@@ -1,9 +1,10 @@
 import styles from "./ListingStyle";
-import { Text, View, Image, FlatList } from "react-native";
+import { Text, View, Image, FlatList, Pressable } from "react-native";
 import API_ENDPOINT from "../../Constants/apiEndpoint";
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "../../Components/RestaurantCard/RestaurantCard";
 import restaurantService from "../../Services/restaurant";
+import CustomButton from "../../Components/CustomButton/CustomButton";
 
 export default function ListingScreen({ route, navigation }) {
   const [restaurants, setRestaurants] = useState([]);
@@ -49,7 +50,17 @@ export default function ListingScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Restaurants of Calais</Text>
+      <View style={styles.row}>
+        <Text style={styles.header}>Restaurants of Calais</Text>
+        <Pressable
+          onPress={(e) => {
+            navigation.navigate("Login");
+          }}
+          style ={
+            styles.logoutBtn
+          }
+        ><Text style={styles.innerText}>Logout</Text></Pressable>
+      </View>
       <FlatList
         data={restaurants}
         renderItem={({ item }) => {
