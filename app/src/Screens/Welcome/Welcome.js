@@ -34,6 +34,14 @@ export default function Welcome() {
         theme="outline"
         size="md"
       />
+       <CustomButton
+        onPress={(e) => {
+          navigation.navigate("shopList");
+        }}
+        title="ShopList"
+        theme="outline"
+        size="md"
+      />
     </View>
   );
 }
