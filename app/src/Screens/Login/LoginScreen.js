@@ -1,18 +1,43 @@
-import React, { useState } from "react";
-import { KeyboardAvoidingView, Image, TextInput } from "react-native";
+import React, { useEffect, useState } from "react";
+import { KeyboardAvoidingView, Image, TextInput, Platform } from "react-native";
 import CustomButton from "../../Components/CustomButton/CustomButton";
 import styles from "./LoginStyle";
 import userService from "../../Services/user";
-
-const LoginScreen = () => {
+import toast from "../../Utils/toast";
+import { useNavigation } from "@react-navigation/native";
+// import auth from "../../Modules/auth";
+const LoginScreen = ({ route, navigation }) => {
+  const setUser = route.params.setUser;
+  const user = route.params.user;
+  const [newUser, setNewUser] = useState(user ? { ...user } : {});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [err, setError] = useState("");
+  useEffect(() => {
+    if (newUser?.hasOwnProperty("token")) {
+      navigation.navigate("Listing");
+    }
+  }, [newUser]);
+
+  // const handlePress = navigation.getParam("handlePress");
+
   const handleLogin = async () => {
-    let res = userService.authenticate(email, password);
-    if (res === true) console.log("Authenticated");
-    else console.log("NOT");
+    let res = await userService.authenticate(email, password);
+
+    if (res.success === true) {
+      setUser({
+        email: res.user.credentials.email,
+        token: res.token,
+        first_name: res.user.information.first_name,
+        last_name: res.user.information.last_name,
+      });
+      setNewUser({
+        email: res.user.credentials.email,
+        token: res.token,
+        first_name: res.user.information.first_name,
+        last_name: res.user.information.last_name,
+      });
+    } else toast("Authentication", "Email or password wrong!");
   };
 
   return (

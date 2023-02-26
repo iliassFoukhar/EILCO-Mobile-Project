@@ -1,7 +1,7 @@
 import API_ENDPOINT from "../Constants/apiEndpoint";
 
-const authenticate = (email, password) => {
-  fetch(API_ENDPOINT + "api/user/login", {
+const authenticate = async (email, password) => {
+  return await fetch(API_ENDPOINT + "api/user/login", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -14,12 +14,12 @@ const authenticate = (email, password) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log("FROM PROMISE , ", json);
-      return json.success;
+      return json;
     })
     .catch((err) => {
       console.error("An error occured while trying to authenticate");
-      return false;
+      console.error(err);
+      return { success: false };
     });
 };
 
