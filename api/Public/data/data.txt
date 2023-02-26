@@ -1,0 +1,122 @@
+20
+1
+La Buissonnière
+1.png
+4.6
+Bar
+10 Rue Neuve, 62100 Calais
+2
+Restaurant Le London
+2.png
+4.1
+Restaurant
+12 Pl. d'Armes, 62100 Calais
+3
+Histoire Ancienne
+3.png
+4.8
+Bar
+20 Rue Royale, 62100 Calais
+4
+Le Grand Bleu
+4.png
+3.9
+Restaurant
+8 Rue Jean Pierre Avron, 62100 Calais
+5
+Au Vieux Fourneau
+5.png
+4.4
+Restaurant
+4 Rue Royale, 62100 Calais
+6
+Au Côte d'Argent
+6.png
+4.5
+Restaurant gastronomique
+1 Digue Gaston Berthe, 62100 Calais
+7
+L'Atelier Gourmand
+7.png
+4.8
+Restaurant français
+7 Pl. de Norvège, 62100 Calais
+8
+Oh Mouettes
+8.png
+4.1
+Restaurant de fruits de mer
+10 Rue Jean Pierre Avron, 62100 Calais
+9
+Au Coq d'Or
+9.png
+4.4
+Restaurant
+31 Pl. d'Armes, 62100 Calais
+10
+La Route des épices
+10.png
+4.8
+Restaurant
+12 Rue Jean de Vienne, 62100 Calais
+11
+Au Square
+11.png
+4.2
+Restaurant
+5 Sq. des Fontinettes, 62100 Calais
+12 
+Les Grandes Tables Du Channel
+12.png
+3.2
+Restaurant
+173 Bd Gambetta, 62100 Calais
+13
+L’atelier, Père et fils - Calais
+13.png
+4.8
+Restaurant
+2 Pl. d'Armes, 62100 Calais
+14
+LE TOUCH DOWN
+14.png
+4.1
+FastFood
+580 Rue Marcel Dassault, 62100 Calais
+15
+Le Channel
+15.png
+3.6
+Restaurant français
+3 Bd de la Résistance, 62100 Calais
+16
+Restaurant Marrakech
+16.png
+4.0
+Restaurant marocain
+28 Bd des Alliés, 62100 Calais
+17
+Calice
+17.png
+3.9
+Restaurant
+55 Bd Jacquard, 62100 Calais
+18
+Brasserie Café de Paris
+18.png
+4.4
+Restaurant français
+72 Rue Royale, 62100 Calais
+19
+Buffalo Grill Calais
+19.png
+3.8
+Restaurant
+20
+Friterie du restaurant de la plage calais
+20.png
+4.8
+Restaurant
+693 Digue Gaston Berthe, 62100 Calais
+
+
