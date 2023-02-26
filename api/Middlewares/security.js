@@ -16,13 +16,6 @@ const isAuthenticated = (req, res, next) => {
             .send({ error: true, message: "Must be authenticated" });
           return;
         } else {
-          console.log("@@@@@@@@@@@@@@@DEBUG DECODED = ", decoded);
-          req.userId = decoded._id;
-          req.email = decoded.email;
-          req.token = req.headers.authorization.split(" ")[1];
-          req.first_name = decoded.first_name;
-          req.last_name = decoded.last_name;
-          req.membership = req.role;
           next();
         }
       }

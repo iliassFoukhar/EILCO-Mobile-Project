@@ -17,7 +17,7 @@ const RegisterScreen = ({ route, navigation }) => {
       email,
       password
     );
-    if (res === true) console.log("Registered");
+    if (res === true) navigation.navigate("Login");
     else console.log("Register failed");
   };
 

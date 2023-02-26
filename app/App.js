@@ -22,6 +22,8 @@ const Stack = createStackNavigator();
 LogBox.ignoreLogs([
   "Non-serializable values were found in the navigation state",
 ]);
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 function RootStack() {
   const [user, setUser] = useState({});
@@ -52,6 +54,7 @@ function RootStack() {
         name="Listing"
         component={ListingScreen}
         initialParams={{ setUser: setUser, user: { ...user } }}
+        options={{ headerLeft: null }}
       />
       <Stack.Screen
         name="Restaurant"

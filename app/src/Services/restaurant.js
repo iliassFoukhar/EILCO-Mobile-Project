@@ -30,7 +30,6 @@ const rate = async (restaurantId, comment, stars, token) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log("FROM PROMISE , ", json);
       return true;
     })
     .catch((err) => {
