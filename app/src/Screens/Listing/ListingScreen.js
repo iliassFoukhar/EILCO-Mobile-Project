@@ -53,7 +53,14 @@ export default function ListingScreen({ route, navigation }) {
       <FlatList
         data={restaurants}
         renderItem={({ item }) => {
-          return <RestaurantCard info={item} />;
+          return (
+            <RestaurantCard
+              info={item}
+              onPress={(e) => {
+                navigation.navigate("Restaurant", { details: { ...item } });
+              }}
+            />
+          );
         }}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}

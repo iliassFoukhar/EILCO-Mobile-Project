@@ -13,6 +13,7 @@ import LoginScreen from "./src/Screens/Login/LoginScreen";
 import ListingScreen from "./src/Screens/Listing/ListingScreen";
 import RegisterScreen from "./src/Screens/Signup/RegisterScreen";
 import { LogBox } from "react-native";
+import RestaurantScreen from "./src/Screens/RestaurantScreen/RestaurantScreen";
 
 // Navigator stack
 const Stack = createStackNavigator();
@@ -46,15 +47,15 @@ function RootStack() {
         component={LoginScreen}
         initialParams={{ setUser: setUser, user: { ...user } }}
       />
-      {/* <Stack.Screen
-        name="Listing"
-        component={ListingScreen}
-        initialParams={{ setUser: setUser, user: { ...user } }}
-      /> */}
       <Stack.Screen name="Signup" component={RegisterScreen} />
       <Stack.Screen
         name="Listing"
         component={ListingScreen}
+        initialParams={{ setUser: setUser, user: { ...user } }}
+      />
+      <Stack.Screen
+        name="Restaurant"
+        component={RestaurantScreen}
         initialParams={{ setUser: setUser, user: { ...user } }}
       />
     </Stack.Navigator>

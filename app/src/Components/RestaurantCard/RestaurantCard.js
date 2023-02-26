@@ -4,8 +4,8 @@ import IconLabel from "../IconLabel/IconLabel";
 const iconColor = "#6c5ce7";
 export default function RestaurantCard(props) {
   const { name, categories, numberOfRates, image, stars } = props.info;
-  const ShowDetails = () => {
-    console.log("im presed");
+  const ShowDetails = (e) => {
+    props.onPress(e);
   };
   return (
     <Pressable onPress={ShowDetails}>
