@@ -1,12 +1,23 @@
-import { Text, View, Image, TextInput, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  TextInput,
+  ScrollView,
+  FlatList,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import styles from "./RestaurantStyle";
 import IconLabel from "../../Components/IconLabel/IconLabel";
 import CustomButton from "../../Components/CustomButton/CustomButton";
 import restaurantService from "../../Services/restaurant";
-
+import colors from "../../Constants/colors";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 const iconColor = "#6c5ce7";
 
+const ItemSeparator = () => {
+  return <View style={{ height: 20 }} />;
+};
 export default function RestaurantScreen({ route, navigation }) {
   const details = route.params.details;
   const [rating, setRating] = useState();
@@ -51,10 +62,36 @@ export default function RestaurantScreen({ route, navigation }) {
         {details.ratings.length === 0 ? (
           <Text style={styles.paragraphStyle}>No ratings</Text>
         ) : (
-          <Text>Ratings: </Text>
+          <View style={styles.ratingsContainer}>
+            <Text style={styles.titleStyle}>Ratings: </Text>
+            <FlatList
+              data={details.ratings}
+              ItemSeparatorComponent={ItemSeparator}
+              renderItem={({ item }) => (
+                <View style={styles.ratingContainer}>
+                  <Text style={styles.username}>
+                    By {item.first_name} {item.last_name}
+                  </Text>
+
+                  <Text style={styles.comment}>{item.comment}</Text>
+
+                  <Text style={styles.stars}>
+                    {item.stars}{" "}
+                    <MaterialIcons
+                      name="star"
+                      size={12}
+                      colors={colors.primary}
+                    />
+                  </Text>
+                </View>
+              )}
+              keyExtractor={(item) => item.id}
+            />
+          </View>
         )}
         {/* // Rating form */}
         <View style={styles.formContainer}>
+          <Text style={styles.titleStyle}>Rate {details.name} </Text>
           <TextInput
             style={styles.input}
             placeholder="Rating from 1 to 5"

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import colors from "../../Constants/colors";
 const styles = StyleSheet.create({
   imageStyle: {
     height: 220,
@@ -11,6 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginTop: 10,
     marginLeft: 10,
+    marginBottom: 10,
   },
   paragraphStyle: {
     fontSize: 16,
@@ -18,7 +20,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   iconContainer: {
-    // flex: 1,
     marginTop: 10,
     marginLeft: 10,
   },
@@ -34,8 +35,35 @@ const styles = StyleSheet.create({
   formContainer: {
     flex: 1,
     marginTop: 20,
-    // justifyContent: "center",
     alignItems: "center",
+  },
+  ratingsContainer: {
+    marginLeft: 10,
+
+    marginRight: 10,
+    marginTop: 20,
+    flex: 1,
+    alignItems: "center",
+  },
+  ratingContainer: {
+    borderBottomWidth: 2,
+    borderBottomColor: colors.primary,
+    marginbottom: 20,
+
+    width: 300,
+  },
+
+  username: {
+    fontSize: 11,
+  },
+  stars: {
+    textAlign: "right",
+    fontSize: 12,
+    flex: 1,
+    justifyContent: "center",
+  },
+  comment: {
+    textAlign: "center",
   },
 });
 export default styles;
