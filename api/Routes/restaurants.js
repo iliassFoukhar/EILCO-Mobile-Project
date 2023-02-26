@@ -76,23 +76,24 @@ router.post("/", async (req, res) => {
 /* NOTE Route to rate a restaurant
  *    @body
  *     restaurantId : String
- *     userId : String : The ID of the user who's rating
  *     comment : String :
  *     stars : Number
  */
 router.post("/rate", security.isAuthenticated, async (req, res) => {
   try {
     // get necessary data
-    let { restaurantId, userId, comment, stars } = req.body;
+    let { restaurantId, comment, stars } = req.body;
 
     // Get the restaurant object
     let restaurant = await RestaurantModel.findById(restaurantId);
 
     // Store the rating object
     let ratingObject = {
-      user: userId,
+      user: req.userId,
       stars: stars,
       comment: comment,
+      first_name: req.first_name,
+      last_name: req.last_name,
     };
     restaurant.ratings.push(ratingObject);
 

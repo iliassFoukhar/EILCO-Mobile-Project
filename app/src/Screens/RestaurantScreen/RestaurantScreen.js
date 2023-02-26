@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./RestaurantStyle";
 import IconLabel from "../../Components/IconLabel/IconLabel";
 import CustomButton from "../../Components/CustomButton/CustomButton";
+import restaurantService from "../../Services/restaurant";
+
 const iconColor = "#6c5ce7";
 
 export default function RestaurantScreen({ route, navigation }) {
@@ -10,12 +12,22 @@ export default function RestaurantScreen({ route, navigation }) {
   const [rating, setRating] = useState();
   const [comment, setComment] = useState("");
 
-  const handleRate = () => {
-    console.log("RATE BTN Pressed");
-    console.log(rating);
-    console.log(comment);
+  const handleRate = async () => {
+    let x = parseInt(rating);
+    if (x > 5) x = 5;
+    else if (x < 0) x = 0;
+    setRating(x);
+    let response = await restaurantService.rate(
+      details.restaurantId,
+      comment,
+      rating,
+      route.params.user.token
+    );
+    console.log("RESPONSE == ", response);
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(details);
+  }, []);
   return (
     <ScrollView>
       <View>
@@ -45,10 +57,10 @@ export default function RestaurantScreen({ route, navigation }) {
             placeholder="Rating from 1 to 5"
             placeholderTextColor="#999"
             onChangeText={(r) => {
-              r = parseInt(r);
-              if (r > 5) r = 5;
-              else if (r < 0) r = 0;
-              setRating(r);
+              let x = parseInt(r);
+              if (x > 5) x = 5;
+              else if (x < 0) r = 0;
+              setRating(x);
             }}
             value={rating}
           />

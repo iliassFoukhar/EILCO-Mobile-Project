@@ -30,6 +30,7 @@ export default function ListingScreen({ route, navigation }) {
             categories: restaurant.categories.join(" "),
             image: `${API_ENDPOINT}data/${restaurant.image}`,
             id: parseInt(index + 1),
+            restaurantId: restaurant._id,
             stars: parseInt(restaurant.stars),
             adress: restaurant.adress,
             ratings: restaurant.ratings,

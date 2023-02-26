@@ -21,7 +21,7 @@ const isAuthenticated = (req, res, next) => {
           req.email = decoded.email;
           req.token = req.headers.authorization.split(" ")[1];
           req.first_name = decoded.first_name;
-          req.last_name = decoded.first_name;
+          req.last_name = decoded.last_name;
           req.membership = req.role;
           next();
         }

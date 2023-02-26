@@ -47,6 +47,16 @@ const RestaurantsSchema = Schema({
         type: String,
         required: false,
       },
+      first_name: {
+        type: String,
+        required: false,
+        default: "Anonymous",
+      },
+      last_name: {
+        type: String,
+        required: false,
+        default: "Anonymous",
+      },
     },
   ],
 });
