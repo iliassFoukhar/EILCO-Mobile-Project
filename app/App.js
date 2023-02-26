@@ -12,9 +12,15 @@ import Welcome from "./src/Screens/Welcome/Welcome";
 import LoginScreen from "./src/Screens/Login/LoginScreen";
 import ListingScreen from "./src/Screens/Listing/ListingScreen";
 import RegisterScreen from "./src/Screens/Signup/RegisterScreen";
+import { LogBox } from "react-native";
 
 // Navigator stack
 const Stack = createStackNavigator();
+
+// Ignore warnings
+LogBox.ignoreLogs([
+  "Non-serializable values were found in the navigation state",
+]);
 
 function RootStack() {
   const [user, setUser] = useState({});
@@ -40,12 +46,17 @@ function RootStack() {
         component={LoginScreen}
         initialParams={{ setUser: setUser, user: { ...user } }}
       />
+      {/* <Stack.Screen
+        name="Listing"
+        component={ListingScreen}
+        initialParams={{ setUser: setUser, user: { ...user } }}
+      /> */}
+      <Stack.Screen name="Signup" component={RegisterScreen} />
       <Stack.Screen
         name="Listing"
         component={ListingScreen}
         initialParams={{ setUser: setUser, user: { ...user } }}
       />
-      <Stack.Screen name="Signup" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }

@@ -4,7 +4,7 @@ import CustomButton from "../../Components/CustomButton/CustomButton";
 import styles from "./RegisterStyle";
 import userService from "../../Services/user";
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ route, navigation }) => {
   const [first_name, setFirst_name] = useState("");
   const [last_name, setLast_name] = useState("");
   const [email, setEmail] = useState("");
